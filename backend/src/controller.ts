@@ -48,7 +48,7 @@ export const resultadoController = {
                 return res.status(400).json({ error: "Já existe um registro para essa disciplina nesse bimestre." });
             }
 
-            if (!data.nota || !(data.nota >= 0 || data.nota <= 10)) res.status(400).json({ error: "A nota precisa ser maior ou igual a zero ou menor ou igual a dez." })
+            if (data.nota < 0 || data.nota > 10) return res.status(400).json({ error: "A nota precisa ser maior ou igual a zero ou menor ou igual a dez." })
 
             const novoRegistro = await prisma?.resultado.create({
                 data: {
