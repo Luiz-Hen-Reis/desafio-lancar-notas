@@ -13,8 +13,9 @@ export enum IDisciplina {
 }
 
 export interface Resultado {
-    id: string;
+    id?: string;
     bimestre: IBimestre;
     disciplina: IDisciplina;
     nota: number;
+    criadoEm?: Date | string;
   }
