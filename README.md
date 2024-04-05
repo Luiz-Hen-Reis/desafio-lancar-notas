@@ -29,7 +29,7 @@
 
 5. Open your browser and go to http://localhost:5000/resultados to view the project in action.
 
-6. Now, open a new terminal e navigate to the project directory:
+6. Now, open a new terminal and navigate to the project directory:
 
    ```bash
     cd desafio-lancar-notas
