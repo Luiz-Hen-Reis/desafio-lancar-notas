@@ -10,8 +10,10 @@ generator client {
 
 datasource db {
   provider          = "postgresql"
-  url               = env("DATABASE_URL")
-  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+  // url               = env("DATABASE_URL")
+  // shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+  url               = "postgres://tcwszonq:laWH-QeRrR4FmxfKkZ-xh-FOwV8LkI4H@isabelle.db.elephantsql.com/tcwszonq"
+  shadowDatabaseUrl = "postgres://muerihbk:Y9nsiFrMsO9-SgqwD2Ua5BqB249qzZlE@isabelle.db.elephantsql.com/muerihbk"
 }
 
 enum Bimestre {
