@@ -28,17 +28,25 @@ export default function App() {
   }, [resultados]);
 
   const handleRemoverDisciplina = async (id: string) => {
-    await axios.delete(`http://localhost:5000/resultados/${id}`);
+    try {
+        await axios.delete(`http://localhost:5000/resultados/${id}`);
+    } catch (error) {
+        console.log('error ,', error); 
+    }
   }
 
   const handleAdicionarDisciplina = async (data: Resultado) => {
-    await axios.post('http://localhost:5000/resultados', { data });
+    try {
+        await axios.post('http://localhost:5000/resultados', { data });
+    } catch (error) {
+        console.log('error ,', error);
+    }
   }
 
-    const disciplinasPrimeiroBimestre = resultados?.filter((resultado) => resultado.bimestre === "PRIMEIRO");
-    const disciplinasSegundoBimestre = resultados?.filter((resultado) => resultado.bimestre === "SEGUNDO");
-    const disciplinasTerceiroBimestre = resultados?.filter((resultado) => resultado.bimestre === "TERCEIRO");
-    const disciplinasQuartoBimestre = resultados?.filter((resultado) => resultado.bimestre === "QUARTO");
+    const disciplinasPrimeiroBimestre = resultados?.filter((resultado) => resultado.bimestre === IBimestre.PRIMEIRO);
+    const disciplinasSegundoBimestre = resultados?.filter((resultado) => resultado.bimestre === IBimestre.SEGUNDO);
+    const disciplinasTerceiroBimestre = resultados?.filter((resultado) => resultado.bimestre === IBimestre.TERCEIRO);
+    const disciplinasQuartoBimestre = resultados?.filter((resultado) => resultado.bimestre === IBimestre.QUARTO);
 
   return (
     <div className='lg:h-screen text-white flex justify-center'>
