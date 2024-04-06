@@ -10,6 +10,8 @@ const buscarResultados = async () => {
   return resposta;
 }
 
+const apiUrl = "http://localhost:5000/resultados/";
+
 export default function App() {
   const [resultados, setResultados] = useState<Resultado[]>([]);
 
@@ -29,7 +31,7 @@ export default function App() {
 
   const handleRemoverDisciplina = async (id: string) => {
     try {
-        await axios.delete(`http://localhost:5000/resultados/${id}`);
+        await axios.delete(apiUrl + id);
     } catch (error) {
         console.log('error ,', error); 
     }
@@ -37,7 +39,7 @@ export default function App() {
 
   const handleAdicionarDisciplina = async (data: Resultado) => {
     try {
-        await axios.post('http://localhost:5000/resultados', { data });
+        await axios.post(apiUrl, { data });
     } catch (error) {
         console.log('error ,', error);
     }
