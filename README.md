@@ -5,7 +5,7 @@
 1. Clone the repository to your local machine:
 
     ```bash
-    git https://github.com/Luiz-Hen-Reis/desafio-lancar-notas.git
+    git clone https://github.com/Luiz-Hen-Reis/desafio-lancar-notas.git
     ```
 
 2. Navigate to the project directory:
