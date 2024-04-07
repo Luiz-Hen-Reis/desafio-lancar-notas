@@ -3,14 +3,15 @@ import Bimestre from './components/Bimestre'
 import { IBimestre, Resultado } from './types'
 import axios from 'axios'
 
+const apiUrl = "http://localhost:5000/resultados/";
+
 const buscarResultados = async () => {
-  const resultados = await axios.get<Resultado[]>("http://localhost:5000/resultados");
+  const resultados = await axios.get<Resultado[]>(apiUrl);
   const resposta = resultados.data;
 
   return resposta;
 }
 
-const apiUrl = "http://localhost:5000/resultados/";
 
 export default function App() {
   const [resultados, setResultados] = useState<Resultado[]>([]);
@@ -22,7 +23,7 @@ export default function App() {
         setResultados(resposta);
         
       } catch (error) {
-        console.log('Erro ', error);
+        console.log('error ', error);
       }
     };
 
