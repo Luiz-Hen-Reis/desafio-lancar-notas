@@ -28,11 +28,13 @@ export default function App() {
     };
 
     fetchData();
-  }, [resultados]);
+  }, []);
 
   const handleRemoverDisciplina = async (id: string) => {
     try {
         await axios.delete(apiUrl + id);
+        const novosResultados = resultados.filter((resultado) => resultado.id !== id);
+        setResultados(novosResultados);
     } catch (error) {
         console.log('error ,', error); 
     }
@@ -41,6 +43,7 @@ export default function App() {
   const handleAdicionarDisciplina = async (data: Resultado) => {
     try {
         await axios.post(apiUrl, { data });
+        setResultados([...resultados, { ...data, criadoEm: new Date() }]);
     } catch (error) {
         console.log('error ,', error);
     }
